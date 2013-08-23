@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+   
+         http://www.apache.org/licenses/LICENSE-2.0
+   
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<!--
+     This is a blank Struts configuration file with an example
+     welcome action/page and other commented sample elements.
+
+     Struts Validator is configured using the factory defaults
+     and is ready-to-use.
+
+     NOTE: If you have a generator tool to create the corresponding Java classes
+     for you, you could include the details in the "form-bean" declarations.
+     Otherwise, you would only define the "form-bean" element itself, with the
+     corresponding "name" and "type" attributes, as shown here.
+-->
+
+
+<struts-config>
+
+
+<!-- ================================================ Form Bean Definitions -->
+
+    <form-beans>
+    <!-- Ishiyama Modify Start -->
+    <form-bean name="loginForm" type="Nomination.form.LoginForm" />
+    <form-bean name="topForm" type="Nomination.form.TopForm" />
+    <form-bean name="dynaLoginForm" type="org.apache.struts.action.DynaActionForm" >
+		<form-property name="id" type="java.lang.String" />
+		<form-property name="name" type="java.lang.String" />
+		<form-property name="password" type="java.lang.String" />
+		<form-property name="th" type="java.lang.Integer" />
+    </form-bean>
+    <form-bean name="dynaTopForm" type="org.apache.struts.action.DynaActionForm" >
+		<form-property name="no" type="java.lang.Integer[]" />
+		<form-property name="traineeName" type="java.lang.String[]" />
+		<form-property name="age" type="java.lang.Integer[]" />
+		<form-property name="company" type="java.lang.String[]" />
+		<form-property name="rank" type="java.lang.Integer[]" />
+    </form-bean>
+    <!-- Ishiyama Modify E n d -->
+    </form-beans>
+
+
+<!-- ========================================= Global Exception Definitions -->
+
+    <global-exceptions>
+        <!-- sample exception handler
+        <exception
+            key="expired.password"
+            type="app.ExpiredPasswordException"
+            path="/changePassword.jsp"/>
+        end sample -->
+    </global-exceptions>
+
+
+<!-- =========================================== Global Forward Definitions -->
+
+    <global-forwards>
+        <!-- Default forward to "Welcome" action -->
+        <!-- Demonstrates using index.jsp to forward -->
+        <forward
+            name="welcome"
+            path="/Welcome.do"/>
+    </global-forwards>
+
+
+<!-- =========================================== Action Mapping Definitions -->
+
+    <action-mappings>
+    	<!-- Ishiyama Modify Start -->
+        <action
+            path="/Login"
+            type="Nomination.action.LoginAction"
+            name="loginForm"
+            scope="request"
+            input="/pages/login.jsp"
+            validate="true">
+            <forward name="success" path="/pages/top.jsp" />
+            <forward name="error" path="/pages/login.jsp" />
+        </action>
+        <action
+            path="/Logout"
+            type="Nomination.action.LogoutAction">
+            <forward name="success" path="/pages/login.jsp" />
+        </action>
+        <action
+            path="/Top"
+            type="Nomination.action.TopAction"
+            name="topForm"
+            scope="request"
+            input="/pages/top.jsp">
+            <forward name="success" path="/pages/top.jsp" />
+        </action>
+        <!-- Ishiyama Modify E n d -->
+            <!-- Default "Welcome" action -->
+            <!-- Forwards to Welcome.jsp -->
+        <action
+            path="/Welcome"
+            forward="/pages/Welcome.jsp"/>
+    </action-mappings>
+
+
+<!-- ======================================== Message Resources Definitions -->
+
+    <message-resources parameter="Nomination.MessageResources" />
+
+
+<!-- =============================================== Plug Ins Configuration -->
+
+  <!-- ======================================================= Tiles plugin -->
+  <!--
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+
+      <set-property property="definitions-config"
+                       value="/WEB-INF/tiles-defs.xml" />
+      <set-property property="moduleAware" value="true" />
+    </plug-in>
+  -->  
+
+
+  <!-- =================================================== Validator plugin -->
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+        property="pathnames"
+        value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml"/>
+  </plug-in>
+
+</struts-config>
+

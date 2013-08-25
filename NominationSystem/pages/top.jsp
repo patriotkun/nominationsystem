@@ -36,7 +36,7 @@ body {
 					<TH>年齢</TH>
 					<TH>社名</TH>
 					<TH>ランク</TH>
-					<TH>ぼたん</TH>
+					<TH>発言</TH>
 				 </TR>
 				 <!-- 研修生の一覧を表示するエリア -->
 				 <html:form action="/Top">

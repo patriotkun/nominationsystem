@@ -9,7 +9,7 @@
 <style type="text/css">
 <!--
 body {
-	background-image: url(/images/41LK4m4fW7L.jpg);
+	background-image: url("/images/41LK4m4fW7L.jpg");
 	background-repeat: repeat;
 }
 -->

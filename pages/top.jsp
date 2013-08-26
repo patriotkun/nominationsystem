@@ -19,7 +19,7 @@ body {
 		<CENTER>
 			<P>
 				<FONT SIZE="5">
-					 Welcome To GitHub!<br>
+					 Welcome To GitHub Commit & Push!<br>
 					<bean:write name="loginUser" property="name" scope="session" ignore="true" />さん<br>
 					チキチキご指名 第<bean:write name="loginUser" property="th" scope="session" ignore="true" />回目
 				</FONT>

@@ -1,10 +1,12 @@
 nominationsystem
 ================
+
 指名システムについて
-  本アプリの制作においては、pleiades（Kepler Java）の日本語版を使用
-  管理者が配布したpleiadesフォルダを後述の「pleiadesフォルダの配置について」に記載の場所に
-  配置し、別紙「GitHub～Eclipse設定.ods」の手順に従い、GitHubの当リポジトリから資源を適用し
-  開発を行う。
+
+	本アプリの制作においては、pleiades（Kepler Java）の日本語版を使用
+	管理者が配布したpleiadesフォルダを後述の「pleiadesフォルダの配置について」に記載の場所に
+	配置し、別紙「GitHub～Eclipse設定.ods」の手順に従い、GitHubの当リポジトリから資源を適用し
+	開発を行う。
 
 pleiadesについて
 
